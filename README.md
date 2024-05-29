@@ -3,19 +3,35 @@ bash script to set up new account for sftp with password generation and permissi
 
 
 --- sftp set up ----
-# add those lines to /etc/ssh/sshd_config
-# then run sudo systemctl restart ssh
-# configure sftp for customers
+-- add those lines to /etc/ssh/sshd_config
+
+-- then run sudo systemctl restart ssh
+
+-# configure sftp for customers
+
 Subsystem sftp internal-sftp
-# match the group for sftp users
+
+-# match the group for sftp users
+
 Match Group sftp-group
-# restrict access to user's home directory
+
+-# restrict access to user's home directory
+
 ChrootDirectory %h/sftp
-# enable password authen
+
+-# enable password authen
+
 PasswordAuthentication yes
-# enable sftp only with no shell access
+
+-# enable sftp only with no shell access
+
 ForceCommand internal-sftp
-# disable GUI display
+
+-# disable GUI display
+
 X11Forwarding no
-# disable tcp forwarding
+
+-# disable tcp forwarding
+
 AllowTcpForwarding no
+
